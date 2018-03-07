@@ -1,0 +1,34 @@
+.Header {
+  display: flex;
+  align-items: center;
+  background-color: #3c8dbc;
+  height: 50px;
+  width: 100%;
+}
+
+.Header-Nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.Header-Nav .Toggle {
+  text-align: center;
+  padding: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.Header-Nav .Toggle:hover {
+  background-color:rgba(0, 0, 0, 0.1);
+}
+
+.Header-Nav .Items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-left: auto;
+}
