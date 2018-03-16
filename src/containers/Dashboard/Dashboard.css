@@ -1,0 +1,4 @@
+.Summary-Box {
+  display: flex;
+  flex-flow: row wrap;
+}

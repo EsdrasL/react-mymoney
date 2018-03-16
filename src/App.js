@@ -4,7 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import Header from './components/Navigation/Header/Header';
 import SideBar from './components/Navigation/SideBar/SideBar';
-import Dashboard from './components/Dashboard/Dashboard';
+import Dashboard from './containers/Dashboard/Dashboard';
 import BudgetCycles from './containers/BudgetCycles/BudgetCycles';
 import BudgetCycleForm from './containers/BudgetCycleForm/BudgetCycleForm';
 
