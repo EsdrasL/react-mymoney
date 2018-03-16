@@ -1,4 +1,14 @@
-.App {
+.Wrapper {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+}
+
+.Content {
+  background-color: #f4f4f4;
+  flex: 1 1 auto;
+  padding: 0 15px;
+}
+
+* {
+  box-sizing: border-box;
 }

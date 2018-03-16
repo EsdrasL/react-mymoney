@@ -1,0 +1,25 @@
+.Content-Body {
+  display: flex;
+  text-align: right;
+}
+
+.Table {
+  margin: 7px 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.Table th {
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.List-Table tbody>tr:hover {
+  background-color: #f5f5f5;
+}
+
+.List-Table th, .List-Table td {
+  text-align: left;
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+}

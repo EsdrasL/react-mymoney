@@ -1,0 +1,31 @@
+.ValueBox {
+  position: relative;
+  padding: 10px;
+  margin: 5px;
+  flex: 1 1 auto;
+}
+
+.Value h3 {
+  position: relative;
+  font-size: 30px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0 0 10px 0;
+  z-index: 5;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.Value p {
+  position: relative;
+  font-size: 17px;
+  z-index: 5;
+}
+
+.Icon {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}

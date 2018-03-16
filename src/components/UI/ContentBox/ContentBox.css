@@ -1,0 +1,15 @@
+.Content-Box {
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-top: 3px solid #00a65a;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin: 15px 10px;
+  flex: 1 1 auto;
+}
+
+.Box-Header {
+  text-align: left;
+  font-size: 20px;
+}

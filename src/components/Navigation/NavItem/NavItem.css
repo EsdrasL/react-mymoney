@@ -1,12 +1,17 @@
-.NavItem {
+.NavItem a {
   display: block;
-  color: #fff;
-  font-size: 14px;
+  width: 100%;
   line-height: 50px;
-  padding: 0 15px;
-  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
-.NavItem:hover {
-  background-color:rgba(0, 0, 0, 0.1);
+.NavItem a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.NavItem a.active {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-right: 4px solid #00a65a;
 }

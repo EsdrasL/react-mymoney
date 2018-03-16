@@ -1,7 +1,6 @@
 .Header {
   display: flex;
-  align-items: center;
-  background-color: #3c8dbc;
+  background-color: #00a65a;
   height: 50px;
   width: 100%;
 }
@@ -9,7 +8,6 @@
 .Header-Nav {
   width: 100%;
   display: flex;
-  align-items: center;
   height: 50px;
 }
 
@@ -31,4 +29,14 @@
   padding: 0;
   list-style: none;
   margin-left: auto;
+  display: flex;
+}
+
+.Header-Nav a {
+  padding: 0 8px;
+  color: #fff;
+}
+.Header-Nav a.active {
+  padding: 0 8px;
+  border-right: 0px;
 }

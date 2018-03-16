@@ -13,7 +13,7 @@ const Header = (props) => (
         <i className="fas fa-bars"></i>
       </a>
       <ul className="Items">
-        <NavItem name="Sign up" />
+        <NavItem link="/" exact>Sign Out</NavItem>
       </ul>
     </nav>
   </header>

@@ -1,9 +1,12 @@
 .SideBar {
-  width: 230px;
-  min-height: 100vh;
-  background-color: #222d32;
+  min-width: 230px;
+  max-width: 230px;
+  min-height: calc(100vh - 50px);
+  background-color: #fafafa;
   white-space: nowrap;
-  transition: width 0.3s ease-out;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  border-right: 1px solid #ddd;
 }
 
 .SideBar .Items {
@@ -12,11 +15,21 @@
   list-style: none;
 }
 
+.SideBar a {
+  padding-left: 15px;
+  color: #444;
+}
+
 .SideBar-Collapsed {
-  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
   text-align: center;
 }
 
 .SideBar-Collapsed span {
   display: none;
+}
+
+.SideBar-Collapsed a {
+  padding-left: 0; 
 }

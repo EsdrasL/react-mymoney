@@ -1,0 +1,11 @@
+.Content-Header h3 {
+  font-weight: 500;
+  font-size: 24px;
+  margin: 15px 15px 0 15px;
+}
+
+.Content-Header h3>small {
+  padding: 0 8px;
+  font-size: 16px;
+  font-weight: 300;
+}

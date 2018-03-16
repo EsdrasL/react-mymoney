@@ -1,0 +1,10 @@
+.Item-Title {
+  border-bottom: 1px solid #ccc;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 8px; 
+}
+
+.Item-Title:first-letter {
+  text-transform: uppercase;
+}

@@ -1,0 +1,14 @@
+.Row {
+  display: flex;
+}
+
+.Column {
+  flex: 1 1 auto;
+  padding: 0 5px;
+}
+
+@media(max-width: 750px) {
+  .Row {
+    flex-direction: column;
+  }
+}

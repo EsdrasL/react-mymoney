@@ -1,0 +1,13 @@
+.Summary {
+  padding: 15px 0;
+}
+
+.Summary-Body {
+  display: flex;
+}
+
+@media(max-width: 795px) {
+  .Summary-Body {
+    flex-direction: column;
+  }
+}
