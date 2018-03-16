@@ -9,6 +9,12 @@
   border-right: 1px solid #ddd;
 }
 
+@media(max-width: 768px) {
+  .SideBar-Collapsed {
+    margin-left: -50px;
+  }
+}
+
 .SideBar .Items {
   margin: 0;
   padding: 0;

@@ -2,20 +2,26 @@
   text-align: center;
   text-decoration: none;
   color: #fff;
-  background-color: #009551;
+  background-color: #00a65a;
   font-size: 22px;
   line-height: 50px;
-  width: 230px;
+  width: 100%;
   flex-shrink: 0;
   cursor: pointer;
   transition: width 0.3s ease-out;
 }
 
-.Logo-Collapsed {
-  width: 50px;
-  text-align: center;
-}
+@media(min-width: 768px) {
+  .Logo {
+    width: 230px;
+  }
 
-.Logo-Collapsed span {
-  display: none;
+  .Logo-Collapsed {
+    width: 50px;
+    text-align: center;
+  }
+  
+  .Logo-Collapsed span {
+    display: none;
+  }
 }

@@ -10,11 +10,30 @@ import BudgetCycleForm from './containers/BudgetCycleForm/BudgetCycleForm';
 
 class App extends Component {
   state = {
-    sideBarCollapse: false
+    sideBarCollapse: window.innerWidth < 768,
+    width: window.innerWidth
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.resizeHandler);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeHandler);
+  }
+
+  resizeHandler = () => {
+    this.setState((prevState) => {
+      if (!prevState.sideBarCollapse && prevState.width >= 768 && window.innerWidth < 768)
+        return { sideBarCollapse: true, width: window.innerWidth };
+      if (prevState.sideBarCollapse && prevState.width < 768 && window.innerWidth >= 768)
+        return { sideBarCollapse: false, width: window.innerWidth };
+      return { width: window.innerWidth };
+    });
   }
 
   sideBarToggleHandler = () => {
-    this.setState((prevState, props) => {
+    this.setState((prevState) => {
       return { sideBarCollapse: !prevState.sideBarCollapse }
     });
   }

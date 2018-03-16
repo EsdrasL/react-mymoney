@@ -5,6 +5,13 @@
   width: 100%;
 }
 
+@media(max-width: 768px) {
+  .Header {
+    height: 100px;
+    flex-direction: column;
+  }
+}
+
 .Header-Nav {
   width: 100%;
   display: flex;

@@ -9,7 +9,7 @@ const NavItem = (props) => (
       to={props.link}
       exact={props.exact}>
       <i className={props.icon}></i>
-      <span style={{margin: "0 5px"}}>{props.children}</span>
+      <span>{props.children}</span>
     </NavLink>
   </li>
 );

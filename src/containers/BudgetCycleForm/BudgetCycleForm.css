@@ -7,7 +7,7 @@
   padding: 0 5px;
 }
 
-@media(max-width: 750px) {
+@media(max-width: 576px) {
   .Row {
     flex-direction: column;
   }
