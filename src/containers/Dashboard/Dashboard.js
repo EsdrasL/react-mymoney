@@ -11,7 +11,7 @@ import ValueBox from '../../components/ValueBox/ValueBox';
 
 class Dashboard extends Component {
   componentDidMount() {
-    this.props.onFetchBudgetCycles();
+    this.props.onFetchBudgetCycles(this.props.token, this.props.userId);
   }
 
   calcTotal = () => {
@@ -60,13 +60,15 @@ class Dashboard extends Component {
 const mapStateToProps = state => {
   return {
     budgetCycles: state.budgetCycle.budgetCycles,
-    loading: state.budgetCycle.loading
+    loading: state.budgetCycle.loading,
+    token: state.auth.token,
+    userId: state.auth.userId
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchBudgetCycles: () => dispatch(fetchBudgetCycles())
+    onFetchBudgetCycles: (token, userId) => dispatch(fetchBudgetCycles(token, userId))
   }
 }
 

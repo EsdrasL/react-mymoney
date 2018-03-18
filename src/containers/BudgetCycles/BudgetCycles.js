@@ -12,7 +12,7 @@ import Button from '../../components/UI/Button/Button';
 class BudgetCycles extends Component {
 
   componentDidMount() {
-    this.props.onFetchBudgetCycles();
+    this.props.onFetchBudgetCycles(this.props.token, this.props.userId);
   }
 
   onUpdateHandler = (id) => {
@@ -20,7 +20,7 @@ class BudgetCycles extends Component {
   }
 
   onDeleteHandler = (id) => {
-    this.props.onDeleteBudgetCycle(id);
+    this.props.onDeleteBudgetCycle(id, this.props.token);
   }
 
   render() {
@@ -44,12 +44,12 @@ class BudgetCycles extends Component {
                 <td>{budgetCycle.year}</td>
                 <td style={{ width: '100px' }}>
                   <Button
-                    btnType="Alert"
+                    btnType="Alert" type="button"
                     onClick={() => this.onUpdateHandler(budgetCycle.id)}>
                     <i className="fas fa-pencil-alt"></i>
                   </Button>
                   <Button
-                    btnType="Danger"
+                    btnType="Danger" type="button"
                     onClick={() => this.onDeleteHandler(budgetCycle.id)}>
                     <i className="far fa-trash-alt"></i>
                   </Button>
@@ -67,7 +67,7 @@ class BudgetCycles extends Component {
         <section className="Content-Body">
           <ContentBox title="List">
             <Button
-              btnType="Success"
+              btnType="Success" type="button"
               onClick={() => this.props.history.push('/budget-cycles/form')}>
               <i className="fas fa-plus"></i>
               <span>New</span>
@@ -84,14 +84,16 @@ const mapStateToProps = state => {
   return {
     budgetCycles: state.budgetCycle.budgetCycles,
     loading: state.budgetCycle.loading,
-    error: state.budgetCycle.error
+    error: state.budgetCycle.error,
+    token: state.auth.token,
+    userId: state.auth.userId
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchBudgetCycles: () => dispatch(fetchBudgetCycles()),
-    onDeleteBudgetCycle: (id) => dispatch(deleteBudgetCycle(id))
+    onFetchBudgetCycles: (token, userId) => dispatch(fetchBudgetCycles(token, userId)),
+    onDeleteBudgetCycle: (id, token) => dispatch(deleteBudgetCycle(id, token))
   }
 }
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { reduxForm, Field, FieldArray, formValueSelector } from 'redux-form';
 
 import {
-  fetchBudgetCycle, addBudgetCycle, updateBudgetCycle
+  fetchBudgetCycles, addBudgetCycle, updateBudgetCycle
 } from '../../store/actions/budgetCycle';
 import InputField from '../../components/UI/InputField/InputField';
 import ItemList from '../../components/UI/ItemList/ItemList';
@@ -29,7 +29,7 @@ class BudgetCycleForm extends Component {
       initialValues = this.props.budgetCycles.filter(
         (budgetCycle) => budgetCycle.id === urlId);
       if (!initialValues.length) {
-        this.props.onFetchBudgetCycle(urlId);
+        this.props.onFetchBudgetCycles(this.props.token, this.props.userId);
       }
     }
     this.props.initialize(initialValues[0]);
@@ -49,9 +49,10 @@ class BudgetCycleForm extends Component {
   }
 
   onFormSubmitHandler = (data) => {
+    const budgetCycle = { ...data, userId: this.props.userId }
     this.props.match.params.id ?
-      this.props.onUpdateBudgetCycle(data) :
-      this.props.onAddBudgetCycle(data);
+      this.props.onUpdateBudgetCycle(budgetCycle, this.props.token) :
+      this.props.onAddBudgetCycle(budgetCycle, this.props.token);
     this.props.history.replace('/budget-cycles');
   }
 
@@ -109,12 +110,12 @@ class BudgetCycleForm extends Component {
           </div>
           <Button disabled={this.props.pristine || this.props.submitting}
             onClick={this.props.handleSubmit((data) => this.onFormSubmitHandler(data))}
-            btnType="Success">
+            btnType="Success" type="submit">
             Submit
           </Button>
           <Button
             onClick={this.onFormCancelHandler}
-            btnType="Default">
+            btnType="Default" type="button">
             Cancel
           </Button>
         </form>
@@ -137,6 +138,8 @@ const mapStateToProps = state => {
     budgetCycles: state.budgetCycle.budgetCycles,
     loading: state.budgetCycle.loading,
     error: state.budgetCycle.error,
+    token: state.auth.token,
+    userId: state.auth.userId,
     incomes: selector(state, 'incomes'),
     expenses: selector(state, 'expenses')
   }
@@ -144,9 +147,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchBudgetCycle: (id) => dispatch(fetchBudgetCycle(id)),
-    onAddBudgetCycle: (data) => dispatch(addBudgetCycle(data)),
-    onUpdateBudgetCycle: (data) => dispatch(updateBudgetCycle(data))
+    onFetchBudgetCycles: (token, userId) => dispatch(fetchBudgetCycles(token, userId)),
+    onAddBudgetCycle: (data, token) => dispatch(addBudgetCycle(data, token)),
+    onUpdateBudgetCycle: (data, token) => dispatch(updateBudgetCycle(data, token))
   }
 }
 

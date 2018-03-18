@@ -1,0 +1,36 @@
+.Auth {
+  display: flex;
+  background: url("../../assets/images/background.jpeg") no-repeat center fixed;
+  background-size: cover;
+}
+
+.Auth-Img {
+  flex: 1 1 auto;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.Auth-Card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  height: 100vh;
+  padding-bottom: 10px;
+  flex-flow: column nowrap;
+  width: 33%;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #fafafa;
+}
+
+@media(max-width: 768px) {
+  .Auth-Card {
+    width: 100%;
+  }
+}
+
+.Auth-Card hr {
+  margin-top: 15px;
+  width: 90%;
+}

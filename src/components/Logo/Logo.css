@@ -1,14 +1,25 @@
 .Logo {
   text-align: center;
   text-decoration: none;
-  color: #fff;
-  background-color: #00a65a;
-  font-size: 22px;
   line-height: 50px;
   width: 100%;
   flex-shrink: 0;
   cursor: pointer;
   transition: width 0.3s ease-out;
+}
+
+.Logo-Sm {
+  color: #fff;
+  font-size: 22px;
+}
+
+.Logo-Lg {
+  color: #00a65a;
+  font-size: 32px;
+}
+
+.Logo span {
+  margin: 0 6px;
 }
 
 @media(min-width: 768px) {

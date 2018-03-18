@@ -40,7 +40,7 @@ const ItemList = ({ fields }) => (
                 validate={[validation.required, validation.number]} />
             </td>
             <td style={{ textAlign: 'center' }}>
-              <Button onClick={() => fields.remove(index)}
+              <Button type="button" onClick={() => fields.remove(index)}
                 btnType="Danger" disabled={fields.length <= 1}>
                 <i className="far fa-trash-alt"></i>
               </Button>
@@ -51,7 +51,7 @@ const ItemList = ({ fields }) => (
           <td></td>
           <td></td>
           <td style={{ textAlign: 'center' }}>
-            <Button onClick={() => fields.push({})} btnType="Success">
+            <Button type="button" onClick={() => fields.push({})} btnType="Success">
               <i className="fas fa-plus"></i>
             </Button>
           </td>

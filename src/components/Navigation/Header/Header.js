@@ -6,14 +6,14 @@ import './Header.css';
 
 const Header = (props) => (
   <header className="Header">
-    <Logo sideBarCollapse={props.sideBarCollapse} />
+    <Logo logoType="Logo-Sm" sideBarCollapse={props.sideBarCollapse} />
 
     <nav className="Header-Nav">
       <a className="Toggle" onClick={props.sideBarToggle}>
         <i className="fas fa-bars"></i>
       </a>
       <ul className="Items">
-        <NavItem link="/" exact>Sign Out</NavItem>
+        <NavItem link="/logout" exact>Sign Out</NavItem>
       </ul>
     </nav>
   </header>

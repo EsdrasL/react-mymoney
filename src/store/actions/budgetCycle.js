@@ -1,10 +1,11 @@
 import * as actions from './actionTypes';
 import axios from '../../axios-instance';
 
-export const fetchBudgetCycles = () => {
+export const fetchBudgetCycles = (token, userId) => {
   return dispatch => {
     dispatch(fetchBudgetCyclesStart());
-    axios.get('/budgetCycles.json')
+    const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
+    axios.get('/budgetCycles.json' + queryParams)
       .then(response => {        
         const fetchedBudgetCycles = [];
         for (let key in response.data) {
@@ -41,49 +42,9 @@ export const fetchBudgetCyclesFail = (error) => {
   }
 }
 
-export const fetchBudgetCycle = (id) => {
+export const addBudgetCycle = (budgetCycleData, token) => {
   return dispatch => {
-    dispatch(fetchBudgetCycleStart());
-    axios.get('budgetCycles.json?orderBy="$key"&equalTo="' + id + '"')
-      .then(response => {
-        let fetchedBudgetCycle = {};
-        for (let key in response.data) {
-          fetchedBudgetCycle = {
-            ...response.data[key],
-            id: key
-          };
-        }
-        dispatch(fetchBudgetCycleSuccess(fetchedBudgetCycle));
-      })
-      .catch(error => {
-        dispatch(fetchBudgetCycleFail(error.response));
-      });
-  }
-}
-
-export const fetchBudgetCycleStart = () => {
-  return {
-    type: actions.FETCH_BUDGET_CYCLE_START
-  }
-}
-
-export const fetchBudgetCycleSuccess = (budgetCycle) => {
-  return {
-    type: actions.FETCH_BUDGET_CYCLE_SUCCESS,
-    budgetCycle: budgetCycle
-  }
-}
-
-export const fetchBudgetCycleFail = (error) => {
-  return {
-    type: actions.FETCH_BUDGET_CYCLE_FAIL,
-    error: error
-  }
-}
-
-export const addBudgetCycle = (budgetCycleData) => {
-  return dispatch => {
-    axios.post('/budgetCycles.json', budgetCycleData)
+    axios.post('/budgetCycles.json?auth=' + token, budgetCycleData)
       .then(response => {
         dispatch(addBudgetCycleSuccess(response.data.name, budgetCycleData))
       })
@@ -108,10 +69,10 @@ export const addBudgetCycleFail = (error) => {
   }
 }
 
-export const updateBudgetCycle = (budgetCycleData) => {
+export const updateBudgetCycle = (budgetCycleData, token) => {
   return dispatch => {
     const { id, ...data } = budgetCycleData;
-    axios.patch('/budgetCycles/' + id + '.json', data)
+    axios.patch('/budgetCycles/' + id + '.json?auth=' + token, data)
       .then(response => {
         dispatch(updateBudgetCycleSuccess(budgetCycleData))
       })
@@ -134,9 +95,9 @@ export const updateBudgetCycleFail = (error) => {
     error: error
   }
 }
-export const deleteBudgetCycle = (id) => {
+export const deleteBudgetCycle = (id, token) => {
   return dispatch => {
-    axios.delete('/budgetCycles/' + id + '.json')
+    axios.delete('/budgetCycles/' + id + '.json?auth=' + token)
       .then(response => {
         dispatch(deleteBudgetCycleSuccess(id))
       })

@@ -18,22 +18,6 @@ const fetchBudgetCyclesFail = (state, action) => {
   return { ...state, error: action.error, loading: false };
 }
 
-const fetchBudgetCycleStart = (state, action) => {
-  return { ...state, loading: true };
-}
-
-const fetchBudgetCycleSuccess = (state, action) => {
-  return {
-    ...state,
-    budgetCycles: state.budgetCycles.concat(action.budgetCycle),
-    loading: false
-  };
-}
-
-const fetchBudgetCycleFail = (state, action) => {
-  return { ...state, error: action.error, loading: false };
-}
-
 const addBudgetCycleSuccess = (state, action) => {
   const newBudgetCycle = { ...action.budgetCycleData, id: action.id };
   return {
@@ -87,10 +71,6 @@ const reducer = (state = initialState, action) => {
     case actions.FETCH_BUDGET_CYCLES_START: return fetchBudgetCyclesStart(state, action);
     case actions.FETCH_BUDGET_CYCLES_SUCCESS: return fetchBudgetCyclesSuccess(state, action);
     case actions.FETCH_BUDGET_CYCLES_FAIL: return fetchBudgetCyclesFail(state, action);
-    
-    case actions.FETCH_BUDGET_CYCLE_START: return fetchBudgetCycleStart(state, action);
-    case actions.FETCH_BUDGET_CYCLE_SUCCESS: return fetchBudgetCycleSuccess(state, action);
-    case actions.FETCH_BUDGET_CYCLE_FAIL: return fetchBudgetCycleFail(state, action);
     
     case actions.ADD_BUDGET_CYCLE_SUCCESS: return addBudgetCycleSuccess(state, action);
     case actions.ADD_BUDGET_CYCLE_FAIL: return addBudgetCycleFail(state, action);

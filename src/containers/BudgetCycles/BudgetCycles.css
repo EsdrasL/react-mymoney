@@ -3,6 +3,15 @@
   text-align: right;
 }
 
+.Content-Body button {
+  text-align: right;
+}
+
+.Content-Body h3 {
+  text-align: center;
+  color: #444;
+}
+
 .Table {
   margin: 7px 0;
   width: 100%;
