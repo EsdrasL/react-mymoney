@@ -95,8 +95,10 @@ export const updateBudgetCycleFail = (error) => {
     error: error
   }
 }
+
 export const deleteBudgetCycle = (id, token) => {
   return dispatch => {
+    dispatch(deleteBudgetCycleStart());
     axios.delete('/budgetCycles/' + id + '.json?auth=' + token)
       .then(response => {
         dispatch(deleteBudgetCycleSuccess(id))
@@ -104,6 +106,12 @@ export const deleteBudgetCycle = (id, token) => {
       .catch(error => {
         dispatch(deleteBudgetCycleFail(error.response))
       })
+  }
+}
+
+export const deleteBudgetCycleStart = () => {
+  return {
+    type: actions.DELETE_BUDGET_CYCLE_START
   }
 }
 

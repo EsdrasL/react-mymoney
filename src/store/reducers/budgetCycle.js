@@ -51,6 +51,10 @@ const updateBudgetCycleFail = (state, action) => {
   return { ...state, error: action.error, loading: false };
 }
 
+const deleteBudgetCycleStart = (state, action) => {
+  return { ...state, loading: true };
+}
+
 const deleteBudgetCycleSuccess = (state, action) => {
   const newBudgetCycles = state.budgetCycles.filter(
     (budgetCycle) => budgetCycle.id !== action.id)
@@ -78,6 +82,7 @@ const reducer = (state = initialState, action) => {
     case actions.UPDATE_BUDGET_CYCLE_SUCCESS: return updateBudgetCycleSuccess(state, action);
     case actions.UPDATE_BUDGET_CYCLE_FAIL: return updateBudgetCycleFail(state, action);
 
+    case actions.DELETE_BUDGET_CYCLE_START: return deleteBudgetCycleStart(state, action);
     case actions.DELETE_BUDGET_CYCLE_SUCCESS: return deleteBudgetCycleSuccess(state, action);
     case actions.DELETE_BUDGET_CYCLE_FAIL: return deleteBudgetCycleFail(state, action);
     default: return state;

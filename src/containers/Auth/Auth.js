@@ -29,6 +29,13 @@ class Auth extends Component {
   render() {
     const authMode = this.state.isLogin ? "Sign In" : "Sign Up";
 
+    let errorMsg = null;
+    if(this.props.error) {
+      let errString = this.props.error.message.replace(/_/g, ' ');
+      errString = errString.charAt(0).toUpperCase() + errString.slice(1).toLowerCase();
+      errorMsg = <p style={{color: '#dd4b39'}}>{errString}</p>
+    }
+
     let loginForm = <Spinner />
     if (!this.props.loading) {
       loginForm = (
@@ -74,6 +81,7 @@ class Auth extends Component {
         <div className="Auth-Card">
           <Logo logoType="Logo-Lg" />
           <h3>{authMode}</h3>
+          {errorMsg}
           {loginForm}
         </div>
         <div className="Auth-Img"></div>
@@ -84,7 +92,8 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
   return {
-    loading: state.auth.loading
+    loading: state.auth.loading,
+    error: state.auth.error
   }
 }
 
